@@ -12,6 +12,6 @@ func main() {
 
 	router.NewRouter()
 	// fmt.Println("=================>")
-	logger.Log.Println("Server started at 8082 port")
+	logger.Log.Println("Server started at 8084 port")
 	logger.Log.Fatal(http.ListenAndServe(":8084", nil))
 }

@@ -53,3 +53,9 @@ RES:
         "count": 1
     }
 ]
+
+
+
+
+
+Docker Command: sudo docker build -t url-shortener . && sudo docker container run --restart unless-stopped -dit --name urlshortener --net=host --publish 8084:8084 url-shortener:latest

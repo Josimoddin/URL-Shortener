@@ -2,6 +2,7 @@ package router
 
 import (
 	"net/http"
+	"urlShortener/src/handlers"
 )
 
 //Route is a basic sturct
@@ -20,5 +21,17 @@ var routes = Routes{
 		"POST",
 		"/",
 		ThrowBlankResponse,
+	},
+	Route{
+		"shorten",
+		"POST",
+		"/shorten",
+		handlers.ShortenUrl,
+	},
+	Route{
+		"redirecturl",
+		"GET",
+		"/redirecturl",
+		handlers.RedirectUrl,
 	},
 }

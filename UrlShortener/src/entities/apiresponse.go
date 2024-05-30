@@ -13,12 +13,12 @@ type APIResponse struct {
 	Response string `json:"response"`
 }
 
-// // APIResponseInt Structure used to handle integer response
-// type ApiResponseInt struct {
-// 	Success bool   `json:"success"`
-// 	Message string `json:"message"`
-// 	Details int64  `json:"details"`
-// }
+// APIResponseInt Structure used to handle integer response
+type ApiResponseInt struct {
+	Success bool   `json:"success"`
+	Message string `json:"message"`
+	Details int64  `json:"details"`
+}
 
 // BlankPathCheckResponse function is used to return blank path response
 func BlankPathCheckResponse() APIResponse {
@@ -45,4 +45,10 @@ func ThrowJSONResponse(response APIResponse, w http.ResponseWriter) {
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(jsonResponse)
+}
+func JSONParseErrorResponse() APIResponse {
+	var response = APIResponse{}
+	response.Status = false
+	response.Message = "501 JSON parse Error."
+	return response
 }

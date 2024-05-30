@@ -2,6 +2,7 @@ package models
 
 import (
 	"math/rand"
+	"sort"
 	"strings"
 	"sync"
 	"time"
@@ -19,7 +20,7 @@ func ShortenUrl(req *entities.URLRequest) (string, bool, error, string) {
 	shortURL := generateShortURL()
 	domain := extractDomain(req.URL)
 
-	dao.SaveURL(shortURL, domain, req.URL)
+	shortURL = dao.SaveURL(shortURL, domain, req.URL)
 	return shortURL, true, nil, "Url shortened successfully"
 }
 
@@ -43,8 +44,28 @@ func extractDomain(url string) string {
 	return url
 }
 
-
 func GetOriginalURL(shortURL string) (string, bool) {
-   
-   
+	orgUrl, exist := dao.GetOriginalURL(shortURL)
+	if exist {
+		return orgUrl, true
+	}
+	return "", false
+}
+
+func GetMetrics() []entities.MetricsResponse {
+	topDomains := dao.GetTopDomains()
+
+	var metrics []entities.MetricsResponse
+	for domain, count := range topDomains {
+		metrics = append(metrics, entities.MetricsResponse{Domain: domain, Count: count})
+	}
+
+	sort.Slice(metrics, func(i, j int) bool {
+		return metrics[i].Count > metrics[j].Count
+	})
+
+	if len(metrics) > 3 {
+		metrics = metrics[:3]
+	}
+	return metrics
 }

@@ -24,7 +24,7 @@ func PostMiddleware(next http.Handler) http.Handler {
 		w.Header().Set("Access-Control-Expose-Headers", "Autho")
 		w.Header().Set("Cache-Control", "no-cache,no-store")
 		if req.Method != "POST" {
-			log.Println(req.Method + "is called in " + req.URL.Path)
+			log.Println(req.Method + "is called in " + req.URL.Path + " in PostMiddleware")
 			entities.ThrowJSONResponse(entities.NotPostMethodResponse(), w)
 			return
 		}
@@ -40,7 +40,7 @@ func GetMiddleware(next http.Handler) http.Handler {
 		w.Header().Set("Access-Control-Expose-Headers", "Autho")
 		w.Header().Set("Cache-Control", "no-cache,no-store")
 		if req.Method != "GET" {
-			log.Println(req.Method + "is called in " + req.URL.Path)
+			log.Println(req.Method + "is called in " + req.URL.Path + " in GetMiddleware")
 			entities.ThrowJSONResponse(entities.NotPostMethodResponse(), w)
 			return
 		}

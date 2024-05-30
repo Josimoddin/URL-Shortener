@@ -31,7 +31,13 @@ var routes = Routes{
 	Route{
 		"redirecturl",
 		"GET",
-		"/redirecturl",
+		"/redirecturl/",
 		handlers.RedirectUrl,
+	},
+	Route{
+		"getmetrics",
+		"GET",
+		"/getmetrics",
+		handlers.GetMetrics,
 	},
 }

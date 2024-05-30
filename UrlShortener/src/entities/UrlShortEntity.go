@@ -18,6 +18,10 @@ type URLResponse struct {
 	Message  string `json:"message"`
 	ShortUrl string `json:"shorturl"`
 }
+type MetricsResponse struct {
+	Domain string `json:"domain"`
+	Count  int    `json:"count"`
+}
 
 func (w *URLRequest) FromJSON(r io.Reader) error {
 	e := json.NewDecoder(r)

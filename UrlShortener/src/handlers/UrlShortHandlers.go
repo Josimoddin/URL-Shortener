@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
-	"fmt"
+	// "fmt"
 	"log"
 	"net/http"
 	"strings"
@@ -39,14 +39,14 @@ func ShortenUrl(w http.ResponseWriter, req *http.Request) {
 func RedirectUrl(w http.ResponseWriter, req *http.Request) {
 	logger.Log.Println("Fetching MstAutoForward Data")
 	var query = req.URL.Path
-	fmt.Println("query", query)
+	// fmt.Println("query", query)
 	s := strings.Split(query, "/")
-	fmt.Println("split", s, len(s))
+	// fmt.Println("split", s, len(s))
 	url := ""
 	if len(s) == 4 {
 		url = s[3]
 	}
-	fmt.Println("URLLLL", url)
+	// fmt.Println("URLLLL", url)
 	originalURL, exists := models.GetOriginalURL(url)
 	if !exists {
 		http.NotFound(w, req)
@@ -56,6 +56,7 @@ func RedirectUrl(w http.ResponseWriter, req *http.Request) {
 }
 
 func GetMetrics(w http.ResponseWriter, r *http.Request) {
+
 	metrics := models.GetMetrics()
 
 	json.NewEncoder(w).Encode(metrics)

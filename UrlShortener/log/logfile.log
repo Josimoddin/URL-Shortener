@@ -64,3 +64,14 @@
 2024/05/30 22:49:05 UrlShortModel.go:17: In side ShortenUrl
 2024/05/30 22:50:05 UrlShortModel.go:17: In side ShortenUrl
 2024/05/30 22:50:06 UrlShortModel.go:17: In side ShortenUrl
+2024/05/30 22:53:23 UrlShortModel.go:17: In side ShortenUrl
+2024/05/30 22:53:38 UrlShortHandlers.go:40: Fetching MstAutoForward Data
+2024/05/30 22:57:19 UrlShortModel.go:17: In side ShortenUrl
+2024/05/30 23:09:10 main.go:15: Server started at 8082 port
+2024/05/30 23:10:48 main.go:15: Server started at 8082 port
+2024/05/30 23:11:15 main.go:15: Server started at 8082 port
+2024/05/30 23:11:21 UrlShortModel.go:17: In side ShortenUrl
+2024/05/30 23:11:24 UrlShortModel.go:17: In side ShortenUrl
+2024/05/30 23:11:36 UrlShortHandlers.go:40: Fetching MstAutoForward Data
+2024/05/30 23:12:00 UrlShortModel.go:17: In side ShortenUrl
+2024/05/30 23:12:10 UrlShortHandlers.go:40: Fetching MstAutoForward Data

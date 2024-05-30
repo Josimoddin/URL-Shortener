@@ -1,6 +1,6 @@
 package dao
 
-import "fmt"
+// import "fmt"
 
 type URLStore struct {
 	urls    map[string]string
@@ -24,12 +24,12 @@ func SaveURL(shortURL, domain, originalURL string) string {
 		return shortURL
 	}
 	store.counts[domain]++
-	fmt.Println(store)
+	// fmt.Println(store)
 	return url
 }
 
 func GetOriginalURL(shortURL string) (string, bool) {
-	fmt.Println("store", store, shortURL)
+	// fmt.Println("store", store, shortURL)
 	url, exists := store.urls[shortURL]
 	return url, exists
 }
